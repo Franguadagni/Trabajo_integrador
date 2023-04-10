@@ -473,7 +473,7 @@ textarea.form-input {
 }
 
 .btn{
-  background-color: #1259c3;
+  background-color: #d0a69e;
   padding: 10px 20px;
   border-radius: 4px;
   color: #fff;
@@ -508,7 +508,7 @@ textarea.form-input {
 }
 
 .boton:hover{
-  background-color: #F2EAE8;
+  background-color: #b17b70;
 }
 
 .textoF{
@@ -517,7 +517,7 @@ textarea.form-input {
 }
 
 .linkF{
-  color: #d0a69e;
+  color: #b3887f;
   text-decoration: none;
 }
 
@@ -527,6 +527,11 @@ textarea.form-input {
 
 .row{
   display: flex;
+}
+
+label {
+  font-size: 16px;
+
 }
 
 /*====== Media-Queries ======*/

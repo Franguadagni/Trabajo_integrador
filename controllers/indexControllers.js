@@ -8,7 +8,7 @@ const controlador = {
           listadoProductos: listaProductos,
           listadoComentarios: listaComentarios,
           listadoUsuarios: listaUsuario,
-          userlogueado : true,
+          userlogueado : false,
         })
     }
 }

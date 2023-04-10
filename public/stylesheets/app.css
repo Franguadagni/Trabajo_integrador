@@ -478,8 +478,56 @@ textarea.form-input {
   border-radius: 4px;
   color: #fff;
 }
+/*====== Css Formularios ======*/
+.formulario{
+  background-color: #F1F0ED;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 500px
+}
 
+.inputR{
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  width: 100%;
+  outline: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
+.boton{
+  background-color: #d0a69e;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+.boton:hover{
+  background-color: #F2EAE8;
+}
+
+.textoF{
+  margin-top: 20px;
+  text-align: center;
+}
+
+.linkF{
+  color: #d0a69e;
+  text-decoration: none;
+}
+
+.linkF:hover{
+  text-decoration: underline;
+}
+
+.row{
+  display: flex;
+}
 
 /*====== Media-Queries ======*/
 @media (min-width: 768px) {

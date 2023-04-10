@@ -20,7 +20,7 @@ const controlador = {
     agregados: function(req,res){
         return res.render ("product-add",{
             datosUsuario: listaUsuario,
-            userlogueado : false
+            userlogueado : true
         })
     },
     busqueda: function(req, res){

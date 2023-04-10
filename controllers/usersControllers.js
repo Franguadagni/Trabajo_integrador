@@ -21,13 +21,13 @@ const controlador = {
             datosUsuario: listaUsuario,
             listadoProductos: listaProductos,
             listadoComentarios: listaComentarios,
-            userlogueado : false,
+            userlogueado : true,
         })
     },
     profileEdit: function(req,res){
         res.render("profile-edit",{
             datosUsuario: listaUsuario,
-            userlogueado : false,
+            userlogueado : true,
         })
     }
 }

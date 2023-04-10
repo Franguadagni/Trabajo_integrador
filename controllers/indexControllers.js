@@ -4,12 +4,11 @@ listaProductos = maquillaje.productos
 listaComentarios = maquillaje.comentarios
 const controlador = {
     index: function(req,res){
-      console.log('Llega al index')
         res.render("pagPrincipal" ,{
           listadoProductos: listaProductos,
           listadoComentarios: listaComentarios,
           listadoUsuarios: listaUsuario,
-          userlogueado : false,
+          userlogueado : true,
         })
     }
 }

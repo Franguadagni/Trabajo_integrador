@@ -14,4 +14,4 @@ const controlador = {
     }
 }
 
-module.exports = controladoror
+module.exports = controlador

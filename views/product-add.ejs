@@ -1,0 +1,40 @@
+<!-- Include Head -->
+<%- include('./partials/head') %>
+<!-- /Header -->
+<%- include('./partials/headerLogueado') %>
+<!-- Novedades -->
+<div class="container products-wrapper">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="products-title">Agregar productos</h2>
+        </div>
+        <div class="col-12">
+            <form method="GET" action="/" class="form">
+                <div class="form-group">
+                    <input type="file" id="imagen" name="imagen" placeholder="Imagen">
+                </div>
+
+                <div class="form-group">
+                    <input type="text" id="nombre" name="nombre" placeholder="Nombre del producto">
+                </div>
+
+                <div class="form-group">
+                    <textarea id="descripcion" name="descripcion" placeholder="Descripción"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <input type="date" id="fecha" name="fecha" placeholder="Fecha de carga">
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Agregar producto">
+                </div>
+            </form>
+        </div>
+
+       
+<!-- formulario -->    
+
+    </div>
+</div>
+<%- include('./partials/footer') %>

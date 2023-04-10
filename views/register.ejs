@@ -1,0 +1,56 @@
+<!-- Include Head -->
+<%- include('./partials/head') %>
+    <!-- Header -->
+<%- include('./partials/header') %>
+    <!-- /Header -->
+ <!-- Novedades -->
+    <div class="container products-wrapper">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="products-title">Registrate</h2>
+            </div>
+            <!-- Show the "ultimos" products -->
+            <!-- <h2 class="col-12"> <i>///////////////////////////////////////// <br> Acá va el formulario de registro. <br>
+            Debe cumplir con los puntos de la consigna y ser coherente con la tabla de la base de datos <br>
+            Eliminen estás líneas y coloquen el formulario. <br>
+            Recuerden todo lo que necesita tanto la etiqueta form como los campos input para operar correctamtente</i> <br>
+            ////////////////
+            </h2> -->
+            <section>
+                <form action ="/users/profile" method ="GET"> 
+                    <div> 
+                        <input type="email" id="email" name="email" placeholder="Introduce tu correcto electronico"> 
+                    </input> 
+                    </div>
+                    <div> 
+                        <input type="text" id="username" name="username" placeholder="Introduce tu nombre de usuario"> 
+                    </input> 
+                    </div>
+                    <div> 
+                        <input type="password" id="password" name="password" placeholder="Introduce tu contraseña"> 
+                    </input> 
+                    </div>
+                    <div> 
+                        <input type="date" id="birthdate" name="birthdate" placeholder="Introduce tu fecha de nacimiento"> 
+                    </input> 
+                    </div>
+                    <div> 
+                        <input type="number" id="dni" name="dni" placeholder="Introduce tu numero de documento"> 
+                    </input> 
+                    </div>
+                    <div> 
+                        <input type="text" id="profilePicture" name="profilePicture" placeholder="Introduce la url de tu foto de perfil"> 
+                    </input> 
+                    </div>
+                    <button type="submit">
+                        Registrarse
+                    </button>
+                </form>
+                <p>
+                ¿Ya tienes una cuenta?
+                <a href="/users/login">Iniciar Sesion</a>
+                </p>
+            </section>
+        </div>
+    </div>		
+<%- include('./partials/footer') %>

@@ -5,7 +5,7 @@ maquillaje = {
         contrasena: "gatitos",
         fechaDeNacimiento: "07/06/04",
         numeroDocumento: 43782084,
-        fotoDePerfil: "/images/users/default-image.png",
+        fotoDePerfil: "/images/users/persona.png",
     },
     productos: [
         {
@@ -83,27 +83,27 @@ maquillaje = {
         {
             nombreDeUsuario:"sofiaarroyo",
             comentario: "divino y muy buena calidad",
-            fotoDePerfil: "/images/users/default-image.png",
+            fotoDePerfil: "/images/users/persona.png",
         },
         {
             nombreDeUsuario:"franguadagni",
             comentario: "este maquillaje me empodera",
-            fotoDePerfil: "/images/users/default-image.png",
+            fotoDePerfil: "/images/users/persona.png",
         },
         {
             nombreDeUsuario:"laragrazzini",
             comentario: "el envio fue muy rapido",
-            fotoDePerfil: "/images/users/default-image.png",
+            fotoDePerfil: "/images/users/persona.png",
         },
         {
             nombreDeUsuario:"Juanperez",
             comentario: "me encanto!!",
-            fotoDePerfil: "/images/users/default-image.png",
+            fotoDePerfil: "/images/users/persona.png",
         },
         {
             nombreDeUsuario:"Martinagonzales",
             comentario: "increibles los colores",
-            fotoDePerfil: "/images/users/default-image.png",
+            fotoDePerfil: "/images/users/persona.png",
         }
     ],
 

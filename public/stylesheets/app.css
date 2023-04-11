@@ -1,5 +1,5 @@
 /*====== Fonts ======*/
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap');
+@import url(https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300&display=swap);
 
 
 /*====== Variables ======*/
@@ -10,7 +10,7 @@
   --gray: #666666;
   --light-gray: #EBDAD3;
   --green: #39b54a;
-  --base-font-family: 'Roboto', sans-serif
+  --base-font-family:'IBM Plex Sans', sans-serif;
 }
 
 
@@ -205,6 +205,7 @@ hr {
   font-weight: 300;
   margin: 0;
   color: black;
+  font-family:'Fira Sans', sans-serif;;
 }
 
 .product-box_data span {

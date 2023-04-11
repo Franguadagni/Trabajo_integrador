@@ -81,17 +81,17 @@ maquillaje = {
     ],
     comentarios: [
         {
-            nombreDeUsuario:"sofiaarroyo",
+            nombreDeUsuario:"Sofiaarroyo",
             comentario: "divino y muy buena calidad",
             fotoDePerfil: "/images/users/persona.png",
         },
         {
-            nombreDeUsuario:"franguadagni",
+            nombreDeUsuario:"Franguadagni",
             comentario: "este maquillaje me empodera",
             fotoDePerfil: "/images/users/persona.png",
         },
         {
-            nombreDeUsuario:"laragrazzini",
+            nombreDeUsuario:"Laragrazzini",
             comentario: "el envio fue muy rapido",
             fotoDePerfil: "/images/users/persona.png",
         },
@@ -101,7 +101,7 @@ maquillaje = {
             fotoDePerfil: "/images/users/persona.png",
         },
         {
-            nombreDeUsuario:"Martinagonzales",
+            nombreDeUsuario:"Martinagonzalez",
             comentario: "increibles los colores",
             fotoDePerfil: "/images/users/persona.png",
         }

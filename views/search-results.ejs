@@ -1,0 +1,34 @@
+<!-- Include Head -->
+<%- include('./partials/head') %>
+<!-- /Header -->
+<%- include('./partials/header') %>
+<!-- Novedades -->
+<div class="container products-wrapper">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="products-title">Resultados de búsqueda</h2>
+        </div>
+          <!-- Show the "ultimos" products -->
+          <% for(let i = 0; i<8 ; i++){ %> <!-- deje i menor a cuatro pq solo se muestran 4 productos -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <section class="product-box">
+                    <a href="/productos/detalle/4">
+                        <figure class="product-box_image">
+                            <img src="<%=listadoProductos[i].imagen%>" alt="imagen <%=listadoProductos[i].name%>">
+                        </figure>
+                        <article class="product-box_data">
+                            <h2><%= listadoProductos[i].nombre %></h2>
+                            <p><%= listadoProductos[i].descripcion %></p>
+                            <p>Comentarios: <%= listadoComentarios.length %></p>
+                        </article>
+                    </a>
+                </section>
+            </div>
+            <% } %>
+        </div>
+    </div>
+        <!-- <h2 class="col-12"> <i>///////////////////////////////////////// <br> Acá van los resultados de búsqueda. <br>
+        Eliminen estás líneas y cosntruyan la página de resultados de búsqueda. <br>
+        ////////////////
+        </h2> -->
+        <%- include('./partials/footer') %>

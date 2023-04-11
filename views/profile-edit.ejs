@@ -1,0 +1,50 @@
+<%- include('./partials/head') %>
+<%- include('./partials/headerLogueado') %>
+<!-- /Header -->
+
+<!-- Novedades -->
+<div class="container products-wrapper">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="products-title">Editar mi perfil</h2>
+        </div>
+        <!-- Show the "ultimos" products -->
+       <!--  <h2 class="col-12"> <i>///////////////////////////////////////// <br> Acá va el formulario de edición de datos del perfil de usuario. <br>
+        Debe cumplir con los puntos de la consigna y ser coherente con la tabla de la base de datos del usuario<br>
+        Eliminen estás líneas y coloquen el formulario. <br>
+        Recuerden todo lo que necesita tanto la etiqueta form como los campos input para operar correctamtente</i> <br>
+        ////////////////
+        </h2> -->
+        <form class="formulario" action ="/users/profile" method ="GET"> <!--a donde se redirige este form?-->
+            <div> 
+                <input class="inputR" type="email" id="email" name="email" placeholder="Introduce tu correcto electronico"> 
+            </input> 
+            </div>
+            <div> 
+                <input class="inputR"  type="text" id="username" name="username" placeholder="Introduce tu nombre de usuario"> 
+            </input> 
+            </div>
+            <div> 
+                <input class="inputR"  type="password" id="password" name="password" placeholder="Introduce tu contraseña"> 
+            </input> 
+            </div>
+            <div> 
+                <input class="inputR"  type="date" id="birthdate" name="birthdate" placeholder="Introduce tu fecha de nacimiento"> 
+            </input> 
+            </div>
+            <div> 
+                <input class="inputR"  type="number" id="dni" name="dni" placeholder="Introduce tu numero de documento"> 
+            </input> 
+            </div>
+            <div> 
+                <input class="inputR"  type="text" id="profilePicture" name="profilePicture" placeholder="Introduce la url de tu foto de perfil"> 
+            </input> 
+            </div>
+            <button class="boton" type="submit">
+                Editar
+            </button>
+        </form>
+        
+    </div>
+</div>
+<%- include('./partials/footer') %>

@@ -1,16 +1,16 @@
 /*====== Fonts ======*/
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap');
+@import url(https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300&display=swap);
 
 
 /*====== Variables ======*/
 :root {
   --yellow: #EAC926;
   --dark-blue: #03264C;
-  --light-blue: #1259c3;
+  --light-blue: #d0a69e;
   --gray: #666666;
-  --light-gray: #ebebeb;
+  --light-gray: #EBDAD3;
   --green: #39b54a;
-  --base-font-family: 'Roboto', sans-serif
+  --base-font-family:'IBM Plex Sans', sans-serif;
 }
 
 
@@ -43,6 +43,7 @@ a {
   display: inline-block;
   text-decoration: none;
   color: inherit;
+  font-family: 'Asap', sans-serif;
 }
 
 figure {
@@ -68,11 +69,12 @@ hr {
 /*====== Main Header ======*/
 .main-header {
   padding: 15px 0;
-  background-color: var(--yellow);
+  background-color: #d0a69e;
+  background-color: #F1F0ED;
 }
 
 .main-header_home-link,
-.main-header_credit-link {
+.main-header_credit-link{
   display: block;
 }
 
@@ -154,7 +156,7 @@ hr {
 
 /*====== Banner ======*/
 .banner {
-  background-image: url(/images/img-home-banner.jpg);
+  background-image: url(/images/banner.webp);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -170,12 +172,13 @@ hr {
 
 .products-title {
   font-size: 2.4em;
-  font-weight: 400;
-  color: var(--gray);
+  font-weight: 500;
+  color: rgb(73, 73, 73);
+  font-family: 'Fira Sans', sans-serif;
 }
 
 .product-box {
-  background-color: #ffffff;
+  background-color: #F2EAE8;
   border-radius: 5px;
   overflow: hidden;
   transition: 300ms;
@@ -196,12 +199,15 @@ hr {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+ /*  color: #EBDAD3;  */
 }
 
 .product-box_data h2 {
   font-size: 2.4em;
   font-weight: 300;
   margin: 0;
+  color: rgb(73, 73, 73);
+  font-family:'Fira Sans', sans-serif;
 }
 
 .product-box_data span {
@@ -259,7 +265,7 @@ hr {
 
 /*====== Footer ======*/
 .main-footer {
-  background-color: #ffffff;
+  background-color:#F1F0ED;
   padding: 20px 0;
   margin-top: 80px;
 }
@@ -269,7 +275,7 @@ hr {
 }
 
 .footer-data i {
-  color: var(--light-blue);
+  color: #d0a69e;
   font-size: 3.5em;
 }
 
@@ -299,7 +305,7 @@ hr {
 
 /*====== Product Detail ======*/
 .product-detail {
-  background-color: #ffffff;
+  background-color: #F2EAE8;
   border-radius: 8px;
   overflow: hidden;
 }
@@ -470,12 +476,66 @@ textarea.form-input {
 }
 
 .btn{
-  background-color: #1259c3;
+  background-color: #d0a69e;
   padding: 10px 20px;
   border-radius: 4px;
   color: #fff;
 }
+/*====== Css Formularios ======*/
+.formulario{
+  background-color: #F1F0ED;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 500px
+}
 
+.inputR{
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  width: 100%;
+  outline: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.boton{
+  background-color: #d0a69e;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+.boton:hover{
+  background-color: #b17b70;
+}
+
+.textoF{
+  margin-top: 20px;
+  text-align: center;
+}
+
+.linkF{
+  color: #b3887f;
+  text-decoration: none;
+}
+
+.linkF:hover{
+  text-decoration: underline;
+}
+
+.row{
+  display: flex;
+}
+
+label {
+  font-size: 16px;
+
+}
 
 /*====== Media-Queries ======*/
 @media (min-width: 768px) {
@@ -528,3 +588,4 @@ textarea.form-input {
     margin: auto;
   }
 }
+

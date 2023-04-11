@@ -1,0 +1,49 @@
+<!-- Include Head -->
+<%- include('./partials/head') %>
+    <!-- Header -->
+<%- include('./partials/header') %>
+    <!-- /Header -->
+ <!-- Novedades -->
+    <div class="container products-wrapper">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="products-title">Registrate</h2>
+            </div>
+            <section>
+                <form class="formulario" action ="/users/profile" method ="GET"> 
+                    <div> 
+                        <input class="inputR" type="email" id="email" name="email" placeholder="Introduce tu correcto electronico"> 
+                    </input> 
+                    </div>
+                    <div> 
+                        <input class="inputR" type="text" id="username" name="username" placeholder="Introduce tu nombre de usuario"> 
+                    </input> 
+                    </div>
+                    <div> 
+                        <input class="inputR" type="password" id="password" name="password" placeholder="Introduce tu contraseña"> 
+                    </input> 
+                    </div>
+                    <div> 
+                        <input class="inputR" type="date" id="birthdate" name="birthdate" placeholder="Introduce tu fecha de nacimiento"> 
+                    </input> 
+                    </div>
+                    <div> 
+                        <input class="inputR" type="number" id="dni" name="dni" placeholder="Introduce tu numero de documento"> 
+                    </input> 
+                    </div>
+                    <div> 
+                        <input class="inputR" type="text" id="profilePicture" name="profilePicture" placeholder="Introduce la url de tu foto de perfil"> 
+                    </input> 
+                    </div>
+                    <button class="boton" type="submit">
+                        Registrarse
+                    </button>
+                </form>
+                <p class="textoF" >
+                ¿Ya tienes una cuenta?
+                <a class="linkF" href="/users/login">Iniciar Sesion</a>
+                </p>
+            </section>
+        </div>
+    </div>		
+<%- include('./partials/footer') %>

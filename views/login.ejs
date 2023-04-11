@@ -1,0 +1,37 @@
+<!-- Include Head -->
+<%- include('./partials/head') %>
+<%- include('./partials/header') %>
+<!-- Banner -->
+	<!-- Novedades -->
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Ingresar</h2>
+			</div>
+				<section>
+					<form class="formulario" action="/users/profile" method="GET">
+						<div> 
+							<input class="inputR" type="email" id="email" name="email" placeholder="Introduce tu correcto electronico"> 
+						</input> 
+						</div>
+						<div> 
+							<input class="inputR" type="password" id="password" name="password" placeholder="Introduce tu contraseña"> 
+						</input> 
+						</div>
+						<div>
+							<label for="">Recordarme</label> 
+							<input class="inputR" type="checkbox" id="rememberMe" name="rememberMe"> 
+						</input> 
+						</div>
+						<button class="boton" type="submit">
+							Iniciar Sesion 
+						</button>
+					</form>
+					<p class="textoF">
+						¿Todavia no tenes cuenta?
+						<a class="linkF" href="/users/registro">Registrarse</a>
+					</p>
+			</section>
+        </div>
+    </div>
+<%- include('./partials/footer') %>

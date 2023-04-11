@@ -404,11 +404,19 @@ hr {
 }
 .comments {
   padding: 30px 15px 15px 0;
+  background-color: #EBDAD3;
+  padding: 15px;
+  border-radius: 8px;
+  border: none;
+  margin: 15px;
+
 }
 .comments article{
   margin-bottom: 7.5px;
+  margin-top: 7.5px;
   padding-bottom: 7.5px;
-  border-bottom: 1px solid #dcdcdc;
+  padding-top: 7.5px;
+
   display: flex;
   justify-content: space-between;
 }
@@ -424,9 +432,12 @@ hr {
 .comments p{
   font-size: 1.5em;
   margin-top: 0;
+
 }
 .comments .user{
   font-size: 1.7em;
+  margin-left: 7%;
+ 
 }
 
 /*====== Formularios ======*/

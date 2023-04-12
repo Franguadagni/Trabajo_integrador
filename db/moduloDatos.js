@@ -5,7 +5,7 @@ maquillaje = {
         contrasena: "gatitos",
         fechaDeNacimiento: "07/06/04",
         numeroDocumento: 43782084,
-        fotoDePerfil: "/images/users/default-image.png",
+        fotoDePerfil: "/images/users/persona.png",
     },
     productos: [
         {
@@ -44,21 +44,21 @@ maquillaje = {
         },
         {
             imagen: "/images/products/palette.webp", 
-            nombre: "SUN STALK'R FACE + EYE BRONZER & HIGHLIGHTER PALETTE",
+            nombre: "SUN STALK'R FACE + EYE BRONZER & HIGHLIGHTER",
             descripcion: "Limited-edition bronzer & highlighter palette for face and eyes. Includes two new, never-before-seen highlighter shades.",
             fecha: "29/03/23",
             id: 6
         },
         {
             imagen: "/images/products/shiny.webp", 
-            nombre: "SLIP SHINE SHEER SHINY LIPSTICK",
+            nombre: "SLIP SHINE SHEER SHINY PASTEL LIPSTICK",
             descripcion: "Ultra comfortable, sheer lipstick infused with pomegranate for the perfect amount of nourishing color and shine.",
             fecha: "29/03/23",
             id: 7
         },
         {
             imagen: "/images/products/powder.jpeg", 
-            nombre: "PRO FILT'R INSTANT RETOUCH SETTING POWDER",
+            nombre: "PRO FILT'R RETOUCH SETTING POWDER",
             descripcion: "Superfine, weightless, loose setting powder extends makeup wear for that filtered, photo-ready finish.",
             fecha: "29/03/23",
             id: 8
@@ -81,29 +81,29 @@ maquillaje = {
     ],
     comentarios: [
         {
-            nombreDeUsuario:"sofiaarroyo",
+            nombreDeUsuario:"Sofiaarroyo",
             comentario: "divino y muy buena calidad",
-            fotoDePerfil: "/images/users/default-image.png",
+            fotoDePerfil: "/images/users/persona.png",
         },
         {
-            nombreDeUsuario:"franguadagni",
+            nombreDeUsuario:"Franguadagni",
             comentario: "este maquillaje me empodera",
-            fotoDePerfil: "/images/users/default-image.png",
+            fotoDePerfil: "/images/users/persona.png",
         },
         {
-            nombreDeUsuario:"laragrazzini",
+            nombreDeUsuario:"Laragrazzini",
             comentario: "el envio fue muy rapido",
-            fotoDePerfil: "/images/users/default-image.png",
+            fotoDePerfil: "/images/users/persona.png",
         },
         {
             nombreDeUsuario:"Juanperez",
             comentario: "me encanto!!",
-            fotoDePerfil: "/images/users/default-image.png",
+            fotoDePerfil: "/images/users/persona.png",
         },
         {
-            nombreDeUsuario:"Martinagonzales",
+            nombreDeUsuario:"Martinagonzalez",
             comentario: "increibles los colores",
-            fotoDePerfil: "/images/users/default-image.png",
+            fotoDePerfil: "/images/users/persona.png",
         }
     ],
 

@@ -24,12 +24,18 @@ const controlador = {
         })
     },
     busqueda: function(req, res){
-        res.render( 'search-results', {
-            listadoProductos:listaProductos,
-            userlogueado : false
-        }
-        )
-    }
+          let indice = req.params.id
+          for(let i = 0; i< listaProductos.length; i++){
+              if (listaProductos[i].id == indice){
+                  res.render("product",{
+                      detalleProducto: listaProductos[i],
+                      listadoComentarios: listaComentarios,
+                      userlogueado : false
+                  })
+              }
+          }
+          return res.send('No existe el producto que pediste')
+      }
     
 }
 

@@ -15,13 +15,13 @@
         <% for(let i = 0; i<8 ; i++){ %> 
         <div class="col-12 col-sm-6 col-lg-3">
             <section class="product-box">
-                <a href="/productos/detalle/4"> 
+                <a href="/productos/detalle/<%-productos[i].id%>"> 
                     <figure class="product-box_image">
-                        <img src="<%=listadoProductos[i].imagen%>" alt="imagen <%=listadoProductos[i].name%>">
+                        <img src="<%=productos[i].image%>" alt="imagen <%=productos[i].name%>">
                     </figure>
                     <article class="product-box_data">
-                        <h2><%= listadoProductos[i].nombre %></h2>
-                        <p><%= listadoProductos[i].descripcion %></p>
+                        <h2><%= productos[i].nombre %></h2>
+                        <p><%= productos[i].descripcion %></p>
                         <p>Comentarios: <%= listadoComentarios.length %></p>
                     </article>
                 </a>

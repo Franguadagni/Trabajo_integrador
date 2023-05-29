@@ -18,6 +18,9 @@ module.exports = function (sequelize,DataTypes){
         descripcion: {
             type: DataTypes.STRING,
             allowNull: true
+        },
+        image: {
+            type: DataTypes.STRING,
         }
     }
     let config= {
@@ -30,6 +33,10 @@ module.exports = function (sequelize,DataTypes){
         Products.belongsTo(models.usuarios,{
             as: "productos_usuarios",
             foreignKey: "usuarios_id",
+        })
+        Products.hasMany(models.comentarios,{
+            as: "productos_comentarios",
+            foreignKey: "productos_id"
         })
     }
     return Products

@@ -29,7 +29,7 @@ module.exports = function (sequelize,DataTypes){
             foreignKey: "usuarios_id",
             timestamps: false,
         })
-        Comentarios.belongsTo(models.productos, {
+        Comentarios.belongsTo(models.Producto, {
             as: "comentarios_productos",
             foreignKey: "productos_id",
             timestamps: false,

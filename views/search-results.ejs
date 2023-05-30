@@ -3,42 +3,33 @@
 <!-- /Header -->
 <%- include('./partials/header') %>
 <!-- Novedades -->
+<% if(encontroResultados){%>
 <div class="container products-wrapper">
-    <div class="d-flex align-items-center">
-        <h2 class="products-title"> <%= detalleProducto.nombre %></h2> 
-        <p class="product-detail-description">
-            <a href="/productos/product-add">Editar</a>
-        </p>
-    </div>
-    <div class="product-detail">
-        <div class="row">
-            <article class="col-12 col-lg-8 product-detail-info">
-                <img src="<%= detalleProducto.imagen %>" alt="" class="product-detail-img">
-                <p class="product-detail-description">
-                    <%= detalleProducto.descripcion %>
-                </p>
-            </article>
-            <div class="col-12 col-lg-4">
-                <section class="comments">
-                    <% for(let i = 0; i<listadoComentarios.length ; i++){ %>
-                    <article>
-                        <img src="<%= listadoComentarios[i].fotoDePerfil %>" alt="">
-                        <div class="data">
-                            <p class="user">
-                            <strong> <a href="/users/profile"><%= listadoComentarios[i].nombreDeUsuario %></a> </strong>
-                            <%= listadoComentarios[i].comentario %></p>
-                        </div>
-                    </article>
-                    <% } %>
-                </section>
-                <form class="form" action="/productos/detalle/2" method="get"> 
-                    <input class="form-input" type="text" value="" placeholder="Agregar comentario">
-                    <button type="submit" class="buy-now-button" >AGREGAR COMENTARIO</button>
-                </form>
-                <hr>
-            </div>
+    <div class="row">
+        <div class="col-12">
+            <h2 class="products-title">Resultados de Busqueda</h2>
         </div>
+        <!-- Show the "ultimos" products -->
+        <% for(let i = 0; i<resultados.length ; i++){ %> 
+        <div class="col-12 col-sm-6 col-lg-3">
+            <section class="product-box">
+                <a href="/productos/detalle/<%-resultados[i].id%>"> 
+                    <figure class="product-box_image">
+                        <img src="<%=resultados[i].image%>" alt="imagen <%=resultados[i].nombre%>">
+                    </figure>
+                    <article class="product-box_data">
+                        <h2><%= resultados[i].nombre %></h2>
+                        <p><%= resultados[i].descripcion %></p>
+                        <p>Usuario:<a href="/users/profile"><%= resultados[i].productos_usuarios.nombre %></a></p>
+                    </article>
+                </a>
+            </section>
+        </div>
+        <% } %>
     </div>
-</div>
+</div> 
+<% } else {%>
+    <h1>No se encontraron resultados de tu busqueda</h1>
+<%}%>
 <!-- /product detail -->
 <%- include('./partials/footer') %>

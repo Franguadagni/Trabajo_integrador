@@ -7,18 +7,18 @@ module.exports = function (sequelize,DataTypes){
             autoIncrement:true,
             unsigned: true
         },
-        usuario_id:{
+        usuarios_id:{
             type:DataTypes.INTEGER,
             allowNull: true,
             unsigned: true
         },
-        comentario:{
+        comentarios:{
             type:DataTypes.STRING,
             allowNull:true
         },
     }
     let config= {
-        tableName:"Comentarios",
+        tableName:"comentarios",
         timestamps: true
     }
     const Comentarios = sequelize.define(alias,columnas,config)

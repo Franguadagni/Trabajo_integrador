@@ -12,9 +12,9 @@ const controlador = {
         ],
         raw: true,
         nest:true,
-            include:[
-                {association: 'productos_usuarios'},
-                {association: 'productos_comentarios'}]
+        include:[
+            {association: 'productos_usuarios'},
+            {association: 'productos_comentarios'}]
       })
       .then(function(data){
         res.render("pagPrincipal" ,{

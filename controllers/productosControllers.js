@@ -33,7 +33,7 @@ const controlador = {
                 { descripcion: { [op.like]: `%${loQueBusca}%` } }
               ]
             },
-            order: [['createdAt', 'DESC']],
+            order: [['created_at', 'DESC']],
             raw: true,
             include:[
                 {association: 'productos_usuarios'},

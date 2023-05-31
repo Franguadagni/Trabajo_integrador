@@ -4,6 +4,7 @@
 //listaUsuario = maquillaje.usuario
 const db = require('../database/models/index')
 const op = db.sequelize.Op
+let bcrypt = require('bcryptjs')
 const controlador = {
     detalle: function(req,res){
         let id = req.params.id
@@ -21,10 +22,25 @@ const controlador = {
     },
     agregados: function(req,res){
         res.render ("product-add",{
-            datosUsuario: listaUsuario,
+            /* datosUsuario: listaUsuario, */
             userlogueado : true
         })
     },
+    create: function(req,res){
+        db.Producto.create({
+            imagen: req.body.imagen,
+            nombre: req.body.nombre,
+            descripcion: req.body.descripcion
+        })
+        .then(function(data){
+            res.redirect('/')
+        })
+        .catch(function(err){
+            console.log(err)
+        })
+    }
+    ,
+
     busqueda: function(req, res){
           let loQueBusca = req.query.search
           db.Producto.findAll({

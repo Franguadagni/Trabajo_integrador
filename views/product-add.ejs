@@ -9,7 +9,7 @@
             <h2 class="products-title">Agregar productos</h2>
         </div>
         <div class="col-12">
-            <form class="formulario" method="GET" action="/" class="form">
+            <form class="formulario" method="POST" action="/productos/product-add/create" class="form">
                 <div class="form-group">
                     <input class="inputR" type="file" id="imagen" name="imagen" placeholder="Imagen">
                 </div>
@@ -22,9 +22,9 @@
                     <textarea class="inputR" id="descripcion" name="descripcion" placeholder="Descripción"></textarea>
                 </div>
 
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <input class="inputR" class="inputR"  type="date" id="fecha" name="fecha" placeholder="Fecha de carga">
-                </div>
+                </div> -->
 
                 <div class="form-group">
                     <input class="boton" type="submit" value="Agregar producto">

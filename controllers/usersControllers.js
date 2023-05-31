@@ -1,8 +1,9 @@
-const maquillaje = require("../db/moduloDatos")
+/* const maquillaje = require("../db/moduloDatos")
 listaUsuario = maquillaje.usuario
 listaProductos = maquillaje.productos
-listaComentarios = maquillaje.comentarios
-
+listaComentarios = maquillaje.comentarios */
+const db = require('../database/models/index')
+const op = db.sequelize.Op
 const controlador = {
     register: function(req,res){
         res.render("register", 
@@ -18,17 +19,25 @@ const controlador = {
         },
     profile: function(req,res){
         res.render("profile",{
-            datosUsuario: listaUsuario,
+            /* datosUsuario: listaUsuario,
             listadoProductos: listaProductos,
-            listadoComentarios: listaComentarios,
+            listadoComentarios: listaComentarios, */
             userlogueado : true,
         })
     },
     profileEdit: function(req,res){
         res.render("profile-edit",{
-            datosUsuario: listaUsuario,
+            /* datosUsuario: listaUsuario, */
             userlogueado : true,
         })
+    },
+    create: function(req,res){
+       /*  let email = req.body.email
+        let username = req.body.username
+        let password = req.body.password
+        let birthdate = req.body.birthdate
+        let dni = req.body.dni */
+        let {email, username, password,birthdate,dni}= req.body
     }
 }
 

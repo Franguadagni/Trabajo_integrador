@@ -1,5 +1,5 @@
 module.exports = function (sequelize,DataTypes){
-    let alias= "comentarios"
+    let alias= "Comentario"
     let columnas= {
         id: {
             type:DataTypes.INTEGER,
@@ -12,25 +12,27 @@ module.exports = function (sequelize,DataTypes){
             allowNull: true,
             unsigned: true
         },
-        comentarios:{
+        comentario:{
             type:DataTypes.STRING,
             allowNull:true
         },
     }
     let config= {
         tableName:"comentarios",
-        timestamps: true
+        timestamps: true,
+        underscored:true
+
     }
     const Comentarios = sequelize.define(alias,columnas,config)
 
     Comentarios.associate = function(models){
-        Comentarios.belongsTo(models.usuarios, {
+        Comentarios.belongsTo(models.Usuario, {
             as: "comentarios_usuarios",
             foreignKey: "usuarios_id",
             timestamps: false,
         })
         Comentarios.belongsTo(models.Producto, {
-            as: "comentarios_productos",
+            as: "Products",
             foreignKey: "productos_id",
             timestamps: false,
         })

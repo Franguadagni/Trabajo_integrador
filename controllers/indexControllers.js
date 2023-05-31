@@ -14,16 +14,18 @@ const controlador = {
         nest:true,
         include:[
             {association: 'productos_usuarios'},
-            {association: 'productos_comentarios'}]
+            {association: 'Comments'}
+          ]
       })
       .then(function(data){
-        res.render("pagPrincipal" ,{
+        // res.render("pagPrincipal" ,{
           /* listadoProductos: listaProductos,
           listadoComentarios: listaComentarios,
           listadoUsuarios: listaUsuario, */
-          productos: data,
-          userlogueado : false,
-        })
+          //productos: data,
+          //userlogueado : false,
+        //})
+        res.send(data)
       })
       .catch(function(err){
         console.log(err)

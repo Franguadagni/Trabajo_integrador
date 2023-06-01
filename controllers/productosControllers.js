@@ -3,15 +3,15 @@
 //listaComentarios = maquillaje.comentarios
 //listaUsuario = maquillaje.usuario
 const db = require('../database/models/index')
-const op = db.sequelize.Op
-let bcrypt = require('bcryptjs')
+let op = db.Sequelize.Op
+
 const controlador = {
     detalle: function(req,res){
         let id = req.params.id
         db.Producto.findByPk(id, {raw: true})
         .then(function(data){
             res.render('product', {
-                usuarioLogueado:false,
+                userlogueado : false,
                 producto: data
             })
         })
@@ -53,7 +53,7 @@ const controlador = {
             raw: true,
             include:[
                 {association: 'productos_usuarios'},
-                {association: 'productos_comentarios'}]
+               /*  {association: 'Comments'} */]
           })
           .then(function(resultados){
             if (resultados.length == 0){
@@ -68,6 +68,9 @@ const controlador = {
                   resultados: resultados,
                   encontroResultados: encontroResultados
                })
+            .catch(function(err){
+                console.log(err)
+              })
           })
          
 

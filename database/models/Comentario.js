@@ -12,7 +12,7 @@ module.exports = function (sequelize,DataTypes){
             allowNull: true,
             unsigned: true
         },
-        comentario:{
+        comentarios:{
             type:DataTypes.STRING,
             allowNull:true
         },

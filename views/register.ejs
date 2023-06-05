@@ -20,7 +20,7 @@
                     </input> 
                     </div>
                     <div> 
-                        <input class="inputR" type="password" id="password" name="password" placeholder="Introduce tu contraseña"> 
+                        <input class="inputR" type="password" id="password" name="password" placeholder="Introduce tu contraseña">
                     </input> 
                     </div>
                     <div> 
@@ -35,6 +35,9 @@
                         <input class="inputR" type="text" id="profilePicture" name="profilePicture" placeholder="Introduce la url de tu foto de perfil"> 
                     </input> 
                     </div>
+                    <% if(locals.errors){ %>
+                        <p> <%=errors.message%> </p>
+                    <%}%>
                     <button class="boton" type="submit">
                         Registrarse
                     </button>
@@ -44,6 +47,7 @@
                 <a class="linkF" href="/users/login">Iniciar Sesion</a>
                 </p>
             </section>
+            
         </div>
     </div>		
 <%- include('./partials/footer') %>

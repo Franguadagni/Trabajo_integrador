@@ -21,13 +21,13 @@
             </article>
             <div class="col-12 col-lg-4">
                 <section class="comments">
-                    <% for(let i = 0; i<5 ; i++){ %>
+                    <% for(let i = 0; i<producto.Comments.length ; i++){ %>
                     <article>
-                        <img src="<%= listadoComentarios[i].fotoDePerfil %>" alt="">
-                        <div class="data">
-                            <p class="user">
-                            <strong> <a href="/users/profile"><%= listadoComentarios[i].nombreDeUsuario %></a> </strong>
-                            <%= listadoComentarios[i].comentario %></p>
+                        <img src="<%= producto.Comments %>" alt="">
+                        <div class="data"> 
+                            <p class="user"><strong><a href="/users/profile"> <%= nombre%>  </a></strong>
+                                <%= productos.Comments[i].comentario %></p>
+            
                         </div>
                     </article>
                     <% } %>

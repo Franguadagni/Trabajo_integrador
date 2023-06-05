@@ -8,12 +8,44 @@ let op = db.Sequelize.Op
 const controlador = {
     detalle: function(req,res){
         let id = req.params.id
-        db.Producto.findByPk(id, {raw: true})
-        .then(function(data){
-            res.render('product', {
-                userlogueado : false,
-                producto: data
+        db.Producto.findByPk(
+            id,
+            
+            {
+                include:[
+                    {association: 'Comments'}
+                ]
             })
+        .then(function(data){
+            console.log(data)
+            
+            // res.send(data)
+            db.Comentario.findAll(
+                {
+                    include:[
+                        {association: 'comentarios_usuarios'},
+                        /* {association: 'Comments'} */
+                      ]
+                }
+            )
+            .then(function(info){
+                info: info
+                let usuarioId = data.Comments.usuarios_id 
+                // res.send(info)
+                for (i=0; i<info.length; i++){
+                    if (usuarioId==info[i].usuarios_id){
+                        let nombre = info[i].comentarios_usuarios.nombre
+                        let foto_de_perfil = info[i].comentarios_usuarios.foto_de_perfil
+                        res.render('product', {
+                            userlogueado : false,
+                            producto: data,
+                            nombre: nombre,
+                            foto_de_perfil: foto_de_perfil,
+                        })
+                    }
+                }
+            })
+           
         })
         .catch(function(err){
             console.log(err)
@@ -44,18 +76,21 @@ const controlador = {
     busqueda: function(req, res){
           let loQueBusca = req.query.search
           db.Producto.findAll({
-            where: { [op.or]: [
+            where: { 
+                [op.or]: [
                 { nombre: { [op.like]: `%${loQueBusca}%` } },
                 { descripcion: { [op.like]: `%${loQueBusca}%` } }
               ]
             },
             order: [['created_at', 'DESC']],
             raw: true,
+            nest:true,
             include:[
                 {association: 'productos_usuarios'},
                /*  {association: 'Comments'} */]
           })
           .then(function(resultados){
+            // res.send(resultados)
             if (resultados.length == 0){
                encontroResultados = false
             } else{
@@ -68,10 +103,10 @@ const controlador = {
                   resultados: resultados,
                   encontroResultados: encontroResultados
                })
+            })
             .catch(function(err){
                 console.log(err)
               })
-          })
          
 
 

@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const session = require("express-session")
 
 var productosRouter = require ('./routes/productos')
 var indexRouter = require('./routes/index');
@@ -23,6 +24,20 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/productos', productosRouter);
+app.use(session({
+  secret: "Este es mi secreto",
+  resave: false,
+  saveUninitialized: false,
+}))
+app.use(function(req,res,next){
+  if(req.session.user !== undefined){
+    res.locals.isLogged =true
+    res.locals.user = rec.session.user
+  } else{
+    res.locals.isLogged = false
+  }
+  return next()
+})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

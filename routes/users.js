@@ -10,7 +10,9 @@ router.get ('/registro', usersControllers.register)
 router.post('/registro', usersControllers.create)
 
 router.get ('/profile', usersControllers.profile)
-router.get("/profileEdit/:id",  usersControllers.profileEdit)
+router.post('/delete',usersControllers.delete)
+
+router.get("/profileEdit",  usersControllers.profileEdit)
 router.post('/profileEdit', usersControllers.update)
 
 module.exports = router;

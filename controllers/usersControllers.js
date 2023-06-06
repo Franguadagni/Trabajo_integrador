@@ -19,24 +19,28 @@ const controlador = {
         })
         },
     profile: function(req,res){
-        let id = req.params.id //hacerlo con session?
-        db.Usuario.findByPk(id)
-        .then(function(usuario){
+        res.send(req.session)
+        let id = req.session.user.id
+        db.Usuario.findByPk(id) //incluir las relaciones con los productos q agrego y los comentarios q hizo
+        .then(function(user){
             res.render("profile",{
-                usuario: usuario,
+               user:user,
                 userlogueado : true,
             })
+        })
+        .catch(function(err){
+            console.log(err)
         })
        
     },
     profileEdit: function(req,res){
-        let id = req.params.id
+        let id = req.session.user.id 
         db.Usuario.findByPk(id)
-        .then(function(usuario){
+        .then(function(user){
             res.render("profile-edit",{
                 /* datosUsuario: listaUsuario, */
                 userlogueado : true,
-                usuario: usuario
+                user: user
             })
         })
         .catch(function(err){
@@ -73,8 +77,9 @@ const controlador = {
                 console.log(err)
               })
         }  },
-
-            // db.Usuario.findOne({
+//falta que el mail no sea existente
+           
+// db.Usuario.findOne({
             //     where: [
             //         {email: email}]}
             // )
@@ -104,12 +109,32 @@ const controlador = {
         .then(function(user){
             let comparacionPassword = bcrypt.compareSync(password, user.password)
             if(comparacionPassword){
-                //completar con lo de session
+                req.session.user = {
+                    id: user.id,
+                    name: user.nombre,
+                    email:user.email
+                }
+
+                if(rememberMe === 'on'){
+                    res.cookie(
+                        'rememberUser', 
+                        {
+                            id: user.id,
+                            name: user.nombre,
+                            email:user.email
+                        },
+                        {
+                            maxAge: 1000 * 60 * 15
+                        }
+                    )
+                }
+                res.redirect('/users/profile')
             }
+            
         })
     },
     update: function(req,res){
-        let id = req.params.id
+        let id = req.session.user.id 
         let {nombre, email} = req.body
         db.Usuario.update({
             nombre: nombre,
@@ -120,7 +145,21 @@ const controlador = {
             ]
         })
         .then(function(resp){
-           /*  res.redirect('/users/profile/' + id) */
+           res.redirect('/users/profile' ) 
+        })
+        .catch(function(err){
+            console.log(err)
+        })
+    },
+    delete: function(req,res){
+        let id = req.session.user.id
+        db.Users.destroy({
+            where:{
+                id: id
+            }
+        })
+        .then(function(resp){
+            res.redirect('/')
         })
         .catch(function(err){
             console.log(err)

@@ -63,6 +63,8 @@ const controlador = {
             imagen: req.body.imagen,
             nombre: req.body.nombre,
             descripcion: req.body.descripcion
+
+            //falta relacion con las tablas?
         })
         .then(function(data){
             res.redirect('/')

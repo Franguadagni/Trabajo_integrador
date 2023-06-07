@@ -19,7 +19,7 @@ const controlador = {
         })
         },
     profile: function(req,res){
-        res.send(req.session)
+        // res.send(req.session)
         let id = req.session.user.id
         db.Usuario.findByPk(id) //incluir las relaciones con los productos q agrego y los comentarios q hizo
         .then(function(user){
@@ -99,7 +99,7 @@ const controlador = {
 
   
     checkUser: function(req,res){
-        let {email, password} = req.body
+        let {email, password, rememberMe} = req.body
         db.Usuario.findOne({
             where:[
                 {email:email}
@@ -109,10 +109,10 @@ const controlador = {
         .then(function(user){
             let comparacionPassword = bcrypt.compareSync(password, user.password)
             if(comparacionPassword){
-                req.session.user = {
-                    id: user.id,
-                    name: user.nombre,
-                    email:user.email
+               req.session.user = {
+                id: user.id,
+                name: user.nombre,
+                email:user.email
                 }
 
                 if(rememberMe === 'on'){

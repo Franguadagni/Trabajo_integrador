@@ -21,10 +21,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/productos', productosRouter);
-
 app.use(session({
   secret: "Este es mi secreto",
   resave: false,
@@ -33,12 +29,16 @@ app.use(session({
 app.use(function(req,res,next){
   if(req.session.user !== undefined){
     res.locals.isLogged = true
-    res.locals.user = rec.session.user
+    res.locals.user = req.session.user
   } else{
     res.locals.isLogged = false
   }
   return next()
 })
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+app.use('/productos', productosRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

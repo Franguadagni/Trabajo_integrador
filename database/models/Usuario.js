@@ -9,7 +9,7 @@ module.exports = function (sequelize,DataTypes){
         },
         nombre:{
             type:DataTypes.STRING,
-            allowNull: true
+            allowNull: false
         },
         email: {
             type:DataTypes.STRING,
@@ -17,7 +17,7 @@ module.exports = function (sequelize,DataTypes){
             unique: true
         },
         password:{
-            allowNull: true,
+            allowNull: false,
             type:DataTypes.STRING
         },
         foto_de_perfil:{
@@ -25,8 +25,12 @@ module.exports = function (sequelize,DataTypes){
         },
         dni:{
         type:DataTypes.INTEGER,
-        allowNull: true,
+        allowNull: false,
         unique:true
+        },
+        fecha_de_nacimiento:{
+            type: DataTypes.DATE,
+            allowNull: false,
         }
     }
     let config= {

@@ -28,7 +28,7 @@
 			<button class="btn-toggle-navbar">
 				<i class="fas fa-bars"></i>
 			</button>
-			<% if (userlogueado == true) {%>
+			<% if (isLogged) {%>
 			<nav class="main-navbar">
             <ul class="left-navbar">
                 <li><a href="/">Todos los productos</a></li>
@@ -38,7 +38,7 @@
 			 
             <ul class="right-navbar">
                 <li>Buen día <a href="/users/profile">
-                        <%= user.nombre %> <i class="fas fa-user"></i>
+                        <%= user.name %> <i class="fas fa-user"></i>
                     </a>
                 </li>
                 <li>

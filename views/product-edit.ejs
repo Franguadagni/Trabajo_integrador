@@ -1,0 +1,30 @@
+<%- include('./partials/head') %>
+<%- include('./partials/headerLogueado') %>
+<!-- /Header -->
+
+<!-- Novedades -->
+<div class="container products-wrapper">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="products-title">Editar producto</h2>
+        </div>
+        <form class="formulario" action ="/users/profileEdit" method ="POST"> 
+            <div class="form-group">
+                <input class="inputR" type="file" id="imagen" name="imagen" placeholder="Imagen">
+            </div>
+
+            <div class="form-group">
+                <input class="inputR"  type="text" id="nombre" name="nombre" placeholder="Nombre del producto">
+            </div>
+
+            <div class="form-group">
+                <textarea class="inputR" id="descripcion" name="descripcion" placeholder="Descripción"></textarea>
+            </div>
+            <button class="boton" type="submit">
+                Editar
+            </button>
+        </form>
+        
+    </div>
+</div>
+<%- include('./partials/footer') %>

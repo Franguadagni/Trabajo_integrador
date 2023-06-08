@@ -38,17 +38,17 @@
             <h2 class="products-title">Mis productos</h2>
         </div>
         <!-- Show mis productos -->
-        <% for(let i = 2; i<listadoProductos.length ; i++){ %> 
+        <% for(let i = 2; i<user.productos_usuarios.length ; i++){ %> 
             <div class="col-12 col-sm-6 col-lg-3">
                 <section class="product-box">
                     <a href="/productos/detalle/4">
                         <figure class="product-box_image">
-                            <img src="<%=listadoProductos[i].imagen%>" alt="imagen <%=listadoProductos[i].name%>">
+                            <img src="<%=user[i].productos_usuarios.image%>" alt="imagen <%=user[i].productos_usuarios.name%>">
                         </figure>
                         <article class="product-box_data">
-                            <h2><%= listadoProductos[i].nombre %></h2>
-                            <p><%= listadoProductos[i].descripcion %></p>
-                            <p>Comentarios: <%= listadoComentarios.length %></p>
+                            <h2><%= user[i].productos_usuarios.name %></h2>
+                            <p><%= user[i].productos_usuarios.descripcion%></p>
+                            <p>Comentarios: <%= user.usuarios_comentarios.length %></p>
                         </article>
                     </a>
                 </section>

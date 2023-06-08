@@ -10,7 +10,6 @@ const controlador = {
         let id = req.params.id
         db.Producto.findByPk(
             id,
-            
             {
                 include:[
                     {association: 'Comments'}
@@ -28,23 +27,6 @@ const controlador = {
                       ]
                 }
             )
-            .then(function(info){
-                info: info
-                let usuarioId = data.Comments.usuarios_id 
-                // res.send(info)
-                for (i=0; i<info.length; i++){
-                    if (usuarioId==info[i].usuarios_id){
-                        let nombre = info[i].comentarios_usuarios.nombre
-                        let foto_de_perfil = info[i].comentarios_usuarios.foto_de_perfil
-                        res.render('product', {
-                            userlogueado : false,
-                            producto: data,
-                            nombre: nombre,
-                            foto_de_perfil: foto_de_perfil,
-                        })
-                    }
-                }
-            })
            
         })
         .catch(function(err){
@@ -59,6 +41,7 @@ const controlador = {
         })
     },
     create: function(req,res){
+        let {imagen,nombre,descripcion} = req.body
         db.Producto.create({
             imagen: req.body.imagen,
             nombre: req.body.nombre,
@@ -100,7 +83,7 @@ const controlador = {
             }
             res.render("search-results",
                 {
-                  userlogueado : false,
+                  /* userlogueado : false, */
                   busqueda: loQueBusca,
                   resultados: resultados,
                   encontroResultados: encontroResultados
@@ -109,20 +92,12 @@ const controlador = {
             .catch(function(err){
                 console.log(err)
               })
-         
-
-
-          /* for(let i = 0; i< listaProductos.length; i++){
-              if (listaProductos[i].id == indice){
-                  res.render("product",{
-                      detalleProducto: listaProductos[i],
-                      listadoComentarios: listaComentarios,
-                      userlogueado : false
-                  })
-              }
-          }
-          return res.send('No existe el producto que pediste') */
-      }
+        
+      },
+      productEdit: function(req,res){
+        res.render('product-edit')
+      },
+      
     
 }
 

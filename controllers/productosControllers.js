@@ -12,22 +12,20 @@ const controlador = {
             id,
             {
                 include:[
-                    {association: 'Comments'}
-                ]
+                    {association: 'Comments',
+                    include: [{association: 'comentarios_usuarios'}]
+                }, 
+                {association: 'productos_usuarios'}
+                ],
+                /* raw: true,
+                nest:true, */
             })
-        .then(function(data){
-            console.log(data)
-            
-            // res.send(data)
-            db.Comentario.findAll(
-                {
-                    include:[
-                        {association: 'comentarios_usuarios'},
-                        /* {association: 'Comments'} */
-                      ]
-                }
-            )
-           
+        .then(function(producto){
+            /* res.send(producto) */
+            res.render('product', {
+                producto:producto,
+                comentarios: producto.Comments,
+            })
         })
         .catch(function(err){
             console.log(err)

@@ -14,19 +14,19 @@
     <div class="product-detail">
         <div class="row">
             <article class="col-12 col-lg-8 product-detail-info">
-                <img src="<%= producto.imagen %>" alt="" class="product-detail-img">
+                <img src="<%= producto.image %>" alt="" class="product-detail-img">
                 <p class="product-detail-description">
                     <%= producto.descripcion %>
                 </p>
             </article>
             <div class="col-12 col-lg-4">
                 <section class="comments">
-                    <% for(let i = 0; i<producto.Comments.length ; i++){ %>
+                    <% for(let i = 0; i<comentarios.length ; i++){ %>
                     <article>
-                        <img src="<%= producto.Comments %>" alt="">
+                        <img src="<%= comentarios[i].comentarios_usuarios.foto_de_perfil %>" alt="">
                         <div class="data"> 
-                            <p class="user"><strong><a href="/users/profile"> <%= nombre%>  </a></strong>
-                                <%= productos.Comments[i].comentario %></p>
+                            <p class="user"><strong><a href="/users/profile"> <%= comentarios[i].comentarios_usuarios.nombre%>  </a></strong>
+                                <%= comentarios[i].comentarios %></p>
             
                         </div>
                     </article>

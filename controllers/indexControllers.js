@@ -25,7 +25,7 @@ const controlador = {
           productos: data,
           userlogueado : false,
         })
-        res.send(data)
+        /* res.send(data) */
       })
       .catch(function(err){
         console.log(err)

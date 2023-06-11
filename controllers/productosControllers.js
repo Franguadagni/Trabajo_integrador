@@ -21,11 +21,10 @@ const controlador = {
                 nest:true, */
             })
         .then(function(producto){
-            //res.send(producto) 
+            /* res.send(producto) */
             res.render('product', {
                 producto:producto,
                 comentarios: producto.Comments,
-
             })
         })
         .catch(function(err){
@@ -42,9 +41,9 @@ const controlador = {
     create: function(req,res){
         let {imagen,nombre,descripcion} = req.body
         db.Producto.create({
-            image: imagen,
-            nombre: nombre,
-            descripcion: descripcion,
+            imagen: req.body.imagen,
+            nombre: req.body.nombre,
+            descripcion: req.body.descripcion
 
             //falta relacion con las tablas?
         })
@@ -93,7 +92,7 @@ const controlador = {
               })
         
       },
-    productEdit: function(req,res){
+      productEdit: function(req,res){
         res.render('product-edit')
       },
     update: function(req,res){

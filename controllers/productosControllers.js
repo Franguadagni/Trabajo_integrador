@@ -13,6 +13,9 @@ const controlador = {
             {
                 include:[
                     {association: 'Comments',
+                    // order:[
+                    //     ['id', 'DESC'],
+                    //   ],
                     include: [{association: 'comentarios_usuarios'}]
                 }, 
                 {association: 'productos_usuarios'}
@@ -21,10 +24,11 @@ const controlador = {
                 nest:true, */
             })
         .then(function(producto){
-            /* res.send(producto) */
+            //res.send(producto) 
             res.render('product', {
                 producto:producto,
                 comentarios: producto.Comments,
+
             })
         })
         .catch(function(err){
@@ -41,9 +45,9 @@ const controlador = {
     create: function(req,res){
         let {imagen,nombre,descripcion} = req.body
         db.Producto.create({
-            imagen: req.body.imagen,
-            nombre: req.body.nombre,
-            descripcion: req.body.descripcion
+            image: imagen,
+            nombre: nombre,
+            descripcion: descripcion,
 
             //falta relacion con las tablas?
         })
@@ -95,6 +99,39 @@ const controlador = {
       productEdit: function(req,res){
         res.render('product-edit')
       },
+      update: function(req,res){
+        // let id = req.session.user.id 
+        let {imagen,nombre, descripcion} = req.body
+        db.Producto.update({
+            image: imagen,
+            nombre: nombre,
+            descripcion: descripcion, 
+        // }, {
+        //     where: [
+        //         {id:id}
+        //     ]
+        })
+        .then(function(res){
+           res.redirect('/' ) 
+        })
+        .catch(function(err){
+            console.log(err)
+        })
+      },
+      delete: function(req,res){
+        // let id = req.session.user.id
+        db.Producto.destroy({
+            where:{
+                id: id
+            }
+        })
+        .then(function(resp){
+            res.redirect('/')
+        })
+        .catch(function(err){
+            console.log(err)
+        })
+    }
       
     
 }

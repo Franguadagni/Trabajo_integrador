@@ -8,8 +8,21 @@
     <div class="d-flex align-items-center">
         <h2 class="products-title"><%= producto.nombre %></h2> 
         <p class="product-detail-description">
-            <a href="/productos/product-edit">Editar</a>
+            <!-- <//% if (producto.usuarios_id == user.id){ //preguntar si user.id esta bien -->
+                <a href="/productos/product-delete">Editar</a>
+            
+            <!-- else{
+                <p> "No puede editar este procuto, no fue creado por usted."</p>              
+                }%>  -->
         </p>
+        <p> <!-- <//% if (producto.usuarios_id == user.id){ //preguntar si user.id esta bien -->
+            <a href="/productos/product-edit">Borrar</a> 
+
+        <!-- else{
+                <p> "No puede editar este procuto, no fue creado por usted."</p>              
+                }%>  --></p>
+
+         
     </div>
     <div class="product-detail">
         <div class="row">
@@ -31,12 +44,17 @@
                         </div>
                     </article>
                     <% } %>
-
                 </section>
-                <form class="form" action="/productos/detalle/4" method="get"> <!-- a donde se reirige -->
+                <% if (isLogged) {%>
+                <form class="form" action="/productos/detalle" method="get"> <!-- a donde se reirige -->
+                    <input class="form-input" type="text" value="" placeholder="Agregar comentario">
+                    <button type="submit" class="buy-now-button" >AGREGAR COMENTARIO</button>
+                </form> <% } else{
+                    <form class="form" action="/users/login" method="get"> 
                     <input class="form-input" type="text" value="" placeholder="Agregar comentario">
                     <button type="submit" class="buy-now-button" >AGREGAR COMENTARIO</button>
                 </form>
+                } %> 
                 <hr>
             </div>
         </div>

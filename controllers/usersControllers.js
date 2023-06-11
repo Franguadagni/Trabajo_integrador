@@ -138,7 +138,7 @@ checkUser: function(req,res){
                 {id:id}
             ]
         })
-        .then(function(resp){
+        .then(function(res){
            res.redirect('/users/profile' ) 
         })
         .catch(function(err){

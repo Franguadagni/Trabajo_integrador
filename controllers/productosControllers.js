@@ -41,9 +41,9 @@ const controlador = {
     create: function(req,res){
         let {imagen,nombre,descripcion} = req.body
         db.Producto.create({
-            imagen: req.body.imagen,
-            nombre: req.body.nombre,
-            descripcion: req.body.descripcion
+            imagen,
+            nombre,
+            descripcion
 
             //falta relacion con las tablas?
         })

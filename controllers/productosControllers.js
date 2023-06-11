@@ -13,9 +13,6 @@ const controlador = {
             {
                 include:[
                     {association: 'Comments',
-                    // order:[
-                    //     ['id', 'DESC'],
-                    //   ],
                     include: [{association: 'comentarios_usuarios'}]
                 }, 
                 {association: 'productos_usuarios'}
@@ -96,10 +93,10 @@ const controlador = {
               })
         
       },
-      productEdit: function(req,res){
+    productEdit: function(req,res){
         res.render('product-edit')
       },
-      update: function(req,res){
+    update: function(req,res){
         // let id = req.session.user.id 
         let {imagen,nombre, descripcion} = req.body
         db.Producto.update({
@@ -118,7 +115,7 @@ const controlador = {
             console.log(err)
         })
       },
-      delete: function(req,res){
+    delete: function(req,res){
         // let id = req.session.user.id
         db.Producto.destroy({
             where:{
@@ -131,9 +128,24 @@ const controlador = {
         .catch(function(err){
             console.log(err)
         })
+    },
+    comment_add: function(req,res){
+        res.render("comment-add")
+    },
+    crearComment: function(req,res){
+        // let id = req.session.user.id
+        let {comentario} = req.body
+        db.Comentario.create({
+           comentario: comentario
+            //falta relacion con las tablas?
+        })
+        .then(function(data){
+            res.redirect('/')
+        })
+        .catch(function(err){
+            console.log(err)
+        })
     }
-      
-    
 }
 
 module.exports = controlador

@@ -1,0 +1,27 @@
+<!-- Include Head -->
+<%- include('./partials/head') %>
+<!-- /Header -->
+<%- include('./partials/headerLogueado') %>
+<!-- Novedades -->
+<div class="container products-wrapper">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="products-title">Agregar productos</h2>
+        </div>
+        <div class="col-12">
+            <form class="formulario" method="POST" action="/productos/comment-add" class="form">
+                <div class="form-group">
+                    <textarea class="inputR" id="comentario" name="comentario" placeholder="Comentario"></textarea>
+                </div>
+                <div class="form-group">
+                    <input class="boton" type="submit" value="Agregar comentario">
+                </div>
+            </form>
+        </div>
+
+       
+<!-- formulario -->    
+
+    </div>
+</div>
+<%- include('./partials/footer') %>

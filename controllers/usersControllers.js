@@ -1,7 +1,3 @@
-/* const maquillaje = require("../db/moduloDatos")
-listaUsuario = maquillaje.usuario
-listaProductos = maquillaje.productos
-listaComentarios = maquillaje.comentarios */
 const db = require('../database/models/index')
 const op = db.sequelize.Op
 let bcrypt = require('bcryptjs')
@@ -19,7 +15,6 @@ const controlador = {
         })
         },
     profile: function(req,res){
-
         let id = req.session.user.id
         db.Usuario.findByPk(id, {
             include:[
@@ -31,12 +26,12 @@ const controlador = {
             } //falta q los productos sean en orden de ultimo agregado 
                 
             ]
-        }) //incluir las relaciones con los productos q agrego y los comentarios q hizo
+        })
         .then(function(user){
             res.render("profile",{
                user:user,
             })
-            res.send(user)
+            //res.send(user)
         })
         .catch(function(err){
             console.log(err)
@@ -101,32 +96,26 @@ checkUser: function(req,res){
             raw:true
         })
         .then(function(user){
-            let comparacionPassword = bcrypt.compareSync(password, user.password)
-            if(comparacionPassword){
-               req.session.user = {
-                id: user.id,
-                name: user.nombre,
-                email:user.email
-                }
+        let comparacionPassword = bcrypt.compareSync(password, user.password)
+        if(comparacionPassword){
+            req.session.user = {
+            id: user.id,
+            name: user.nombre,
+            email:user.email}
 
-                if(rememberMe === 'on'){
-                    res.cookie(
-                        'rememberUser', 
-                        {
-                            id: user.id,
-                            name: user.nombre,
-                            email:user.email
-                        },
-                        {
-                            maxAge: 1000 * 60 * 15
-                        }
-                    )
-                }
-                res.redirect('/users/profile')
-            }
-            
-        })
-    },
+        if(rememberMe === 'on'){
+        res.cookie(
+        'rememberUser', 
+        {
+            id: user.id,
+            name: user.nombre,
+            email:user.email
+        },
+        {
+        maxAge: 1000 * 60 * 15
+    })}
+    res.redirect('/users/profile')}
+    })},
     update: function(req,res){
         let id = req.session.user.id 
         let {nombre, email} = req.body
@@ -158,7 +147,8 @@ checkUser: function(req,res){
         .catch(function(err){
             console.log(err)
         })
-    }
+    },
+  
 }
 
 

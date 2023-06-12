@@ -1,7 +1,3 @@
-//const maquillaje = require("../db/moduloDatos") // require los datos 
-//listaProductos = maquillaje.productos
-//listaComentarios = maquillaje.comentarios
-//listaUsuario = maquillaje.usuario
 const db = require('../database/models/index')
 let op = db.Sequelize.Op
 
@@ -15,10 +11,9 @@ const controlador = {
                     {association: 'Comments',
                     include: [{association: 'comentarios_usuarios'}]
                 }, 
-                {association: 'productos_usuarios'}
+                {association: 'productos_usuarios'},
                 ],
-                /* raw: true,
-                nest:true, */
+                order: [['Comments', 'id','DESC']]
             })
         .then(function(producto){
             /* res.send(producto) */
@@ -30,22 +25,18 @@ const controlador = {
         .catch(function(err){
             console.log(err)
         })
-        /* return res.send('No existe el producto que pediste') */
     },
     agregados: function(req,res){
-        res.render ("product-add",{
-            /* datosUsuario: listaUsuario, */
-            userlogueado : true
-        })
+        res.render ("product-add")
     },
     create: function(req,res){
+        let id = req.session.user.id
         let {imagen,nombre,descripcion} = req.body
         db.Producto.create({
-            imagen,
+            image: imagen,
             nombre,
-            descripcion
-
-            //falta relacion con las tablas?
+            descripcion,
+            usuarios_id: id
         })
         .then(function(data){
             res.redirect('/')
@@ -55,7 +46,6 @@ const controlador = {
         })
     }
     ,
-
     busqueda: function(req, res){
           let loQueBusca = req.query.search
           db.Producto.findAll({
@@ -69,8 +59,7 @@ const controlador = {
             raw: true,
             nest:true,
             include:[
-                {association: 'productos_usuarios'},
-               /*  {association: 'Comments'} */]
+                {association: 'productos_usuarios'},]
           })
           .then(function(resultados){
             // res.send(resultados)
@@ -92,20 +81,19 @@ const controlador = {
               })
         
       },
-      productEdit: function(req,res){
+    productEdit: function(req,res){
         res.render('product-edit')
       },
     update: function(req,res){
-        // let id = req.session.user.id 
+        let id = req.session.user.id 
         let {imagen,nombre, descripcion} = req.body
         db.Producto.update({
             image: imagen,
             nombre: nombre,
-            descripcion: descripcion, 
-        // }, {
-        //     where: [
-        //         {id:id}
-        //     ]
+            descripcion: descripcion, },
+             {
+          where: [
+           {}  ] // no se sabe
         })
         .then(function(res){
            res.redirect('/' ) 
@@ -115,10 +103,10 @@ const controlador = {
         })
       },
     delete: function(req,res){
-        // let id = req.session.user.id
+        let id = req.session.user.id
         db.Producto.destroy({
             where:{
-                id: id
+                usuarios_id: id //no se sabe
             }
         })
         .then(function(resp){

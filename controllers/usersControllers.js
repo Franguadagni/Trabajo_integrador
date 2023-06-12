@@ -52,27 +52,26 @@ const controlador = {
         
     },
     create: function(req,res){
-        let {email, nombre, password,fecha_de_nacimiento,dni}= req.body
-   /*  db.Usuario.findOne({
+    let {email, nombre, password,fecha_de_nacimiento,dni}= req.body
+    db.Usuario.findOne({
         where:{
             email:email
-        }
-    }) */
-        let errors = {};
-        if(email== ''){
+        }})  
+    if(email== ''){
+            let errors = {};
             errors.message= "El email no puede estar vacio";
             res.locals.errors = errors
-            return res.render('register', /* {userlogueado :false} */);
-        }
-        else if(password==''){
+            res.render('register', );
+        }else if(password=='' ){
+            let errors = {};
             errors.message= "La contraseña no puede estar vacia";
             res.locals.errors = errors
-            return res.render('register' /* {userlogueado :false} */);
-        }
-        else if (password.length<3){
+            res.render('register');
+        }else if (password.length<3){
+            let errors = {};
             errors.message= "La contraseña debe tener mas de tres digitos";
             res.locals.errors = errors
-            return res.render('register'/* {userlogueado :false} */);
+            res.render('register');
         }
         else{
             let passEncriptada = bcrypt.hashSync(password, 12)
@@ -80,13 +79,19 @@ const controlador = {
             .then(function(data){
                 console.log(data)
                 res.redirect('/users/login')
-            })
+                })
             .catch(function(err){
-                console.log(err)
-              })
-        }  },
-//falta que el mail no sea existente
+                    console.log(err)
+                    if(err.name = 'SequelizeUniqueConstraintError'){
+                        let errors = {}
+                        errors.message = 'ya existe un usuario con este email'
+                        res.locals.errors = errors
+                        res.render('register');
+                    }
+                  }) 
+        }
 
+    }, //falta que el mail no sea existente
 checkUser: function(req,res){
         let {email, password, rememberMe} = req.body
         db.Usuario.findOne({
@@ -142,7 +147,7 @@ checkUser: function(req,res){
             }
         })
         .then(function(resp){
-            res.redirect('/')
+            resp.redirect('/')
         })
         .catch(function(err){
             console.log(err)

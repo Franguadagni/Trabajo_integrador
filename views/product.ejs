@@ -8,16 +8,15 @@
     <div class="d-flex align-items-center">
         <h2 class="products-title"><%= producto.nombre %></h2> 
         <p class="product-detail-description">
-            <!-- <//% if (producto.usuarios_id == user.id){ //preguntar si user.id esta bien -->
+                <!-- </% if (producto.usuarios_id == user.id) {%> //preguntar si user.id esta bien -->
                 <a href="/productos/product-delete">Editar</a>
-            
-            <!-- else{
-                <p> "No puede editar este procuto, no fue creado por usted."</p>              
-                }%>  -->
+               <!--  </%} else { %> -->
+                    <!-- <p> "No puede editar este producto, no fue creado por usted."</p>     -->
+             <!--    </% } %> -->
         </p>
-        <p> <!-- <//% if (producto.usuarios_id == user.id){ //preguntar si user.id esta bien -->
+        <p> 
+        <!-- <//% if (producto.usuarios_id == user.id){ //preguntar si user.id esta bien -->
             <a href="/productos/product-edit">Borrar</a> 
-
         <!-- else{
                 <p> "No puede editar este procuto, no fue creado por usted."</p>              
                 }%>  --></p>

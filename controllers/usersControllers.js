@@ -98,7 +98,7 @@ checkUser: function(req,res){
             raw:true
         })
         .then(function(user){
-        //let comparacionPassword = bcrypt.compareSync(password, user.password)
+     /*    let comparacionPassword = bcrypt.compareSync(password, user.password) */
         if(true){
             req.session.user = {
             id: user.id,
@@ -130,6 +130,7 @@ checkUser: function(req,res){
             ]
         })
         .then(function(res){
+
            res.redirect('/users/profile' ) 
         })
         .catch(function(err){

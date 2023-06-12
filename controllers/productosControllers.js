@@ -16,10 +16,21 @@ const controlador = {
                 order: [['Comments', 'id','DESC']]
             })
         .then(function(producto){
-            // res.send(producto) 
+            /* res.send(producto)  */
+            let productoDeLogeado
+            if (req.session.user !== undefined){
+               if(req.session.user.id !== producto.usuarios_id){
+                productoDeLogeado = false
+               }else {
+                productoDeLogeado = true
+               }
+            } else {
+                productoDeLogeado = false
+            }
             res.render('product', {
                 producto:producto,
                 comentarios: producto.Comments,
+                productoDeLogeado
             })
         })
         .catch(function(err){
@@ -39,7 +50,7 @@ const controlador = {
             usuarios_id: id
         })
         .then(function(data){
-            res.redirect('/')
+            res.redirect('/users/profile')
         })
         .catch(function(err){
             console.log(err)
@@ -82,7 +93,14 @@ const controlador = {
         
       },
     productEdit: function(req,res){
-        res.render('product-edit')
+        let id = req.params.id
+        db.Producto.findByPk(id)
+        .then(function(producto){
+            res.render('product-edit', {producto:producto})
+        })
+        .catch(function(err){
+            console.log(err)
+          })
       },
     update: function(req,res){
         let id_producto = req.params.id
@@ -90,12 +108,12 @@ const controlador = {
         db.Producto.update({
             image: imagen,
             nombre: nombre,
-            descripcion: descripcion, },
-             {
+            descripcion: descripcion,
           where: [
            {id:id_producto}  ]
         })
         .then(function(res){
+
            res.redirect('/' ) 
         })
         .catch(function(err){
@@ -106,7 +124,7 @@ const controlador = {
         let id = req.params.id
         db.Producto.destroy({
             where:{
-                id: id //no se sabe
+                id: id
             }
         })
         .then(function(resp){

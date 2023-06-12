@@ -103,14 +103,18 @@ const controlador = {
           })
       },
     update: function(req,res){
-        let id_producto = req.params.id
-        let {imagen,nombre, descripcion} = req.body
+        let {imagen,nombre, descripcion, id} = req.body
+        console.log('Estuviste bien')
+        console.log(id)
         db.Producto.update({
             image: imagen,
             nombre: nombre,
-            descripcion: descripcion,
-          where: [
-           {id:id_producto}  ]
+            descripcion: descripcion
+        },
+            {
+            where: {
+                id:id
+            }
         })
         .then(function(res){
 
@@ -128,7 +132,7 @@ const controlador = {
             }
         })
         .then(function(resp){
-            res.redirect('/')
+            resp.redirect('/')
         })
         .catch(function(err){
             console.log(err)

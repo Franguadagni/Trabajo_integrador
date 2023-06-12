@@ -41,7 +41,7 @@
 
                 </section>
                 <% if (isLogged) {%>
-                <form class="form" action="/productos/comment-add" method="POST"> <!-- a donde se reirige -->
+                <form class="form" action="/productos/comment-add/<%= producto.id %>" method="POST"> <!-- a donde se reirige -->
                     <input class="form-input" type="text" value="" name="comentario" placeholder="Agregar comentario">
                     <button type="submit" class="buy-now-button" >AGREGAR COMENTARIO</button>
                 </form>

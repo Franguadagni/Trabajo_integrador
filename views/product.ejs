@@ -8,15 +8,15 @@
     <div class="d-flex align-items-center">
         <h2 class="products-title"><%= producto.nombre %></h2> 
         <p class="product-detail-description">
-                <!-- </% if (producto.usuarios_id == user.id) {%> //preguntar si user.id esta bien -->
-                <a href="/productos/product-delete">Editar</a>
-               <!--  </%} else { %> -->
-                    <!-- <p> "No puede editar este producto, no fue creado por usted."</p>     -->
-             <!--    </% } %> -->
+                <!-- </% if (producto.usuarios_id == user.id) {%> -->
+                <a href="/productos/product-edit/<%= producto.id %>">Editar</a>
+               <!-- </%} else { %> -->
+                <!-- <p> "No puede editar este producto, no fue creado por usted."</p>      -->
+              <!-- </% } %> -->
         </p>
-        <p> 
+        <p class="product-detail-description"> 
         <!-- <//% if (producto.usuarios_id == user.id){ //preguntar si user.id esta bien -->
-            <a href="/productos/product-edit">Borrar</a> 
+            <a href="/productos/product-delete/<%= producto.id %>">Borrar</a> 
         <!-- else{
                 <p> "No puede editar este procuto, no fue creado por usted."</p>              
                 }%>  --></p>
@@ -47,7 +47,7 @@
                 </section>
                 <% if (isLogged) {%>
                 <form class="form" action="/productos/comment-add" method="POST"> <!-- a donde se reirige -->
-                    <input class="form-input" type="text" value="" placeholder="Agregar comentario">
+                    <input class="form-input" type="text" value="" name="comentario" placeholder="Agregar comentario">
                     <button type="submit" class="buy-now-button" >AGREGAR COMENTARIO</button>
                 </form>
                 <%} else { %>

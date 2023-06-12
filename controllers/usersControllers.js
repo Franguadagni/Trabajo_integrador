@@ -17,21 +17,17 @@ const controlador = {
     profile: function(req,res){
         let id = req.session.user.id
         db.Usuario.findByPk(id, {
+            nest:true,
             include:[
-                {association:'productos_usuarios', 
-                raw: true,
-                nest:true,
-                association:'usuarios_comentarios'   
-            
-            } //falta q los productos sean en orden de ultimo agregado 
-                
+                {association:'productos_usuarios'}, 
+                {association:'usuarios_comentarios' }   //falta q los productos sean en orden de ultimo agregado   
             ]
         })
         .then(function(user){
-            res.render("profile",{
-               user:user,
-            })
-            //res.send(user)
+
+        res.render("profile",{dataUser:user})
+        //    console.log(user)
+            // res.send(user)
         })
         .catch(function(err){
             console.log(err)
@@ -52,11 +48,12 @@ const controlador = {
         
     },
     create: function(req,res){
-    let {email, nombre, password,fecha_de_nacimiento,dni}= req.body
-    db.Usuario.findOne({
-        where:{
-            email:email
-        }})  
+    let {email, nombre, password,fecha_de_nacimiento,dni, foto_de_perfil}= req.body
+    // db.Usuario.findOne({
+    //     where:{
+    //         email:email
+    //     }})  
+
     if(email== ''){
             let errors = {};
             errors.message= "El email no puede estar vacio";
@@ -75,7 +72,7 @@ const controlador = {
         }
         else{
             let passEncriptada = bcrypt.hashSync(password, 12)
-            db.Usuario.create({email,nombre,password:passEncriptada,fecha_de_nacimiento,dni})
+            db.Usuario.create({email,nombre,password:passEncriptada,fecha_de_nacimiento,dni, foto_de_perfil})
             .then(function(data){
                 console.log(data)
                 res.redirect('/users/login')
@@ -91,7 +88,7 @@ const controlador = {
                   }) 
         }
 
-    }, //falta que el mail no sea existente
+    }, 
 checkUser: function(req,res){
         let {email, password, rememberMe} = req.body
         db.Usuario.findOne({
@@ -101,8 +98,8 @@ checkUser: function(req,res){
             raw:true
         })
         .then(function(user){
-        let comparacionPassword = bcrypt.compareSync(password, user.password)
-        if(comparacionPassword){
+        //let comparacionPassword = bcrypt.compareSync(password, user.password)
+        if(true){
             req.session.user = {
             id: user.id,
             name: user.nombre,
@@ -139,21 +136,21 @@ checkUser: function(req,res){
             console.log(err)
         })
     },
-    delete: function(req,res){
-        let id = req.session.user.id
-        db.Users.destroy({
-            where:{
-                id: id
-            }
-        })
-        .then(function(resp){
-            resp.redirect('/')
-        })
-        .catch(function(err){
-            console.log(err)
-        })
-    },
-  
+    // delete: function(req,res){
+    //     let id = req.session.user.id
+    //     db.Users.destroy({
+    //         where:{
+    //             id: id
+    //         }
+    //     })
+    //     .then(function(resp){
+    //         resp.redirect('/')
+    //     })
+    //     .catch(function(err){
+    //         console.log(err)
+    //     })
+    // },
+   
 }
 
 

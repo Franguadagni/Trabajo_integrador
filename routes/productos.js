@@ -13,7 +13,6 @@ router.post('/product-edit/',productosController.update)
 
 router.post('/product-delete/:id',productosController.delete)
 
-// router.get("/comment-add", productosController.comment_add)
 router.post("/comment-add/:id", productosController.crearComment)
 
 module.exports = router;

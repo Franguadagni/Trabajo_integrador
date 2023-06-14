@@ -32,7 +32,7 @@
                     <article>
                         <img src="<%= comentarios[i].comentarios_usuarios.foto_de_perfil %>" alt="">
                         <div class="data"> 
-                            <p class="user"><strong><a href="/users/profile"> <%= comentarios[i].comentarios_usuarios.nombre%>  </a></strong>
+                            <p class="user"><strong><%= comentarios[i].comentarios_usuarios.nombre%></strong>
                                 <%= comentarios[i].comentarios %></p>
             
                         </div>
@@ -46,10 +46,7 @@
                     <button type="submit" class="buy-now-button" >AGREGAR COMENTARIO</button>
                 </form>
                 <%} else { %>
-                <form class="form" action="/users/login" method="get"> <!-- a donde se reirige -->
-                    <input class="form-input" type="text" value="" placeholder="Agregar comentario">
-                    <button type="submit" class="buy-now-button" >AGREGAR COMENTARIO</button>
-                </form>   
+                    <p class="nocomentario">Debe estar logueado para poder comentar</p>
                 <% } %>
             </div>
         </div>

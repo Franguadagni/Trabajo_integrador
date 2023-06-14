@@ -49,11 +49,21 @@ const controlador = {
     },
     create: function(req,res){
     let {email, nombre, password,fecha_de_nacimiento,dni, foto_de_perfil}= req.body
-    // db.Usuario.findOne({
-    //     where:{
-    //         email:email
-    //     }})  
-
+    db.Usuario.findOne({
+     where:{
+       email:email
+      }})  
+    .then(function(email_repetido){
+        if (email_repetido != undefined){
+            let errors = {}
+            errors.message = 'Ya existe un usuario con este email'
+            res.locals.errors = errors
+            res.render('register');
+        }
+    })
+    .catch(function(err){
+        console.log(err)
+    }) 
     if(email== ''){
             let errors = {};
             errors.message= "El email no puede estar vacio";
@@ -79,12 +89,6 @@ const controlador = {
                 })
             .catch(function(err){
                     console.log(err)
-                    if(err.name = 'SequelizeUniqueConstraintError'){
-                        let errors = {}
-                        errors.message = 'ya existe un usuario con este email'
-                        res.locals.errors = errors
-                        res.render('register');
-                    }
                   }) 
         }
 
@@ -116,22 +120,22 @@ checkUser: function(req,res){
         {
         maxAge: 1000 * 60 * 15
     })}
-    res.redirect('/users/profile')}
+        res.redirect('/users/profile')}
     })},
     update: function(req,res){
         let id = req.session.user.id 
-        let {nombre, email} = req.body
+        let {nombre, email, foto_de_perfil} = req.body
         db.Usuario.update({
             nombre: nombre,
-            email: email
+            email: email,
+            foto_de_perfil: foto_de_perfil
         }, {
             where: [
                 {id:id}
             ]
         })
         .then(function(res){
-
-           res.redirect('/users/profile' ) 
+           res.redirect('/')
         })
         .catch(function(err){
             console.log(err)

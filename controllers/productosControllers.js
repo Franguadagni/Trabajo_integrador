@@ -104,7 +104,6 @@ const controlador = {
       },
     update: function(req,res){
         let {imagen,nombre, descripcion, id} = req.body
-        console.log('Estuviste bien')
         console.log(id)
         db.Producto.update({
             image: imagen,

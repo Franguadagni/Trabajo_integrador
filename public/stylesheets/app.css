@@ -142,7 +142,7 @@ hr {
 }
 
 .logout:hover{
-  color: #1259c3;
+  color:#d0a69e;
 }
 
 .left-navbar a,
@@ -546,6 +546,18 @@ textarea.form-input {
 label {
   font-size: 16px;
 
+}
+
+.nocomentario {
+  padding: 30px 15px 15px 0;
+  background-color: #EBDAD3;
+  padding: 15px;
+  border-radius: 8px;
+  border: none;
+  margin: 15px;
+  font-size: 1.4em;
+  font-weight: 500;
+  color: rgb(73, 73, 73);
 }
 
 /*====== Media-Queries ======*/

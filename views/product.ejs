@@ -9,14 +9,18 @@
         <h2 class="products-title"><%= producto.nombre %></h2> 
         <p class="product-detail-description">
             <% if (productoDeLogeado) {%>
-                <a href="/productos/product-edit/<%= producto.id %>">Editar</a>
+                <a href="/productos/product-edit/<%= producto.id %>"><strong>Editar</strong></a>
             <%} %>
         </p>
-        <p class="product-detail-description"> 
             <% if (productoDeLogeado) {%>
-            <a href="/productos/product-delete/<%= producto.id %>">Borrar</a> 
+                <form action="/productos/product-delete" method="POST"> 
+                    <input type="text" name="id" value="<%= producto.id %>" hidden/>
+                    <button class="logout" type="submit">
+                        <p class="borrar"> Borrar</p> 
+                    </button>
+                </form>
             <%} %>          
-        </p>
+        
     </div>
     <div class="product-detail">
         <div class="row">

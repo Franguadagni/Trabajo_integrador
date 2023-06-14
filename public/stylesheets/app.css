@@ -333,6 +333,13 @@ hr {
   line-height: 1.5;
 }
 
+.borrar {
+  padding: 15px 15px 15px 40px;
+  font-size: 1.8em;
+  line-height: 1.5;
+  font-weight: 10;
+}
+
 .product-detail-price {
   font-size: 5.5em;
   margin: 10px 0;

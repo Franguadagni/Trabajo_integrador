@@ -115,31 +115,30 @@ const controlador = {
                 id:id
             }
         })
-        .then(function(res){
+        .then(function(response){
 
-           res.redirect('/' ) 
+           res.redirect('/productos/detalle/' 
+           + id ) 
         })
         .catch(function(err){
             console.log(err)
         })
       },
     delete: function(req,res){
-        let id = req.params.id
+        let {id} = req.body
         db.Producto.destroy({
             where:{
                 id: id
             }
         })
-        .then(function(resp){
-            resp.redirect('/')
+        .then(function(response){
+            res.redirect('/users/profile')
         })
         .catch(function(err){
             console.log(err)
         })
     },
-    // comment_add: function(req,res){
-    //     res.render("comment-add")
-    // },
+
     crearComment: function(req,res){
         let id_usuario = req.session.user.id
         let id_producto = req.params.id

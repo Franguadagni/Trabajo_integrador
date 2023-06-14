@@ -95,6 +95,7 @@ const controlador = {
     }, 
 checkUser: function(req,res){
         let {email, password, rememberMe} = req.body
+        
         db.Usuario.findOne({
             where:[
                 {email:email}
@@ -102,14 +103,15 @@ checkUser: function(req,res){
             raw:true
         })
         .then(function(user){
-     /*    let comparacionPassword = bcrypt.compareSync(password, user.password) */
-        if(true){
+        let comparacionPassword = bcrypt.compareSync(password, user.password) 
+        if(comparacionPassword){
             req.session.user = {
             id: user.id,
             name: user.nombre,
             email:user.email}
 
         if(rememberMe === 'on'){
+            console.log('Crea la cookie del login')
         res.cookie(
         'rememberUser', 
         {
@@ -119,7 +121,9 @@ checkUser: function(req,res){
         },
         {
         maxAge: 1000 * 60 * 15
-    })}
+    }
+    )
+}
         res.redirect('/users/profile')}
     })},
     update: function(req,res){
@@ -140,22 +144,7 @@ checkUser: function(req,res){
         .catch(function(err){
             console.log(err)
         })
-    },
-    // delete: function(req,res){
-    //     let id = req.session.user.id
-    //     db.Users.destroy({
-    //         where:{
-    //             id: id
-    //         }
-    //     })
-    //     .then(function(resp){
-    //         resp.redirect('/')
-    //     })
-    //     .catch(function(err){
-    //         console.log(err)
-    //     })
-    // },
-   
+    }, 
 }
 
 

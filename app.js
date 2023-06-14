@@ -27,7 +27,9 @@ app.use(session({
   saveUninitialized: false,
 }))
 app.use(function(req,res,next){
-  if(req.session.user !== undefined){
+  console.log('Esta es la cookie desde app')
+  console.log(req.cookies)
+  if(req.session.user !== undefined ){//|| req.cookies.rememberUser){
     res.locals.isLogged = true
     res.locals.user = req.session.user
   } else{
